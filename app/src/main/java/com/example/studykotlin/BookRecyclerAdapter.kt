@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-    class MovieAdapter(private val movieList: MutableList<Book>, private val context: Context) :
-        RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+    class BookAdapter(private val bookList: MutableList<Book>, private val context: Context) :
+        RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
             var name: TextView = view.findViewById(R.id.name)
             var author: TextView = view.findViewById(R.id.author)
             var page: TextView = view.findViewById(R.id.page)
@@ -23,10 +24,12 @@ import androidx.recyclerview.widget.RecyclerView
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.name.text = movieList[position].name
-            holder.author.text = movieList[position].author
-            holder.page.text = movieList[position].page.toString()
+
+            holder.name.text = bookList[position].name
+            holder.author.text = bookList[position].author
+            holder.page.text = bookList[position].page.toString()
+
         }
-        override fun getItemCount() = movieList.size
+        override fun getItemCount() = bookList.size
     }
 
